@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import CreatePostPage from "./components/CreatePostPage";
 
 export default function Home(props) {
     const { posts } = props;
 
     const [postCollection, setPostCollection] = useState([]);
+
+    const [createPostFields, setCreatePostFields] = useState({
+        title: "",
+        body: "",
+    });
 
     //On first render, set to database
     useEffect(() => {
@@ -18,6 +24,10 @@ export default function Home(props) {
 
     return (
         <div>
+        <div>
+            <CreatePostPage fields={createPostFields} setFields={setCreatePostFields}></CreatePostPage>
+        </div>
+        <div>
             {postCollection.map((post) => (
             <div key={post._id}>
               <Link href={`/posts/${post._id}`}>
@@ -25,7 +35,8 @@ export default function Home(props) {
               </Link>
             </div>
             ))}
-        </div>   
+        </div> 
+        </div>  
     );
     
 }
