@@ -1,21 +1,25 @@
-const Post = (props) => {
-    const { postData } = props;
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-    return (
-      <div>
-        <h1>{postData.body}</h1>
-      </div>
-    );
-  };
-  
-export async function getServerSideProps() {
-    const res = await fetch("http://localhost:3000/api/posts");
-    const data = await res.json();
-    return {
-      props: {
-        postData: data,
-      },
-    };
+const Post = (props) => {
+
+  const router = useRouter();
+  const { pid } = router.query;
+  const [blogData, setBlogData] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/posts/" + pid)
+      .then((res) => res.json())
+      .then((data) => setBlogData(data));
+  }, [pid]);
+
+  if (!blogData.pid) {
+    return <div></div>;
   }
-  
-  export default Post;
+  return (
+    <div>Worked
+    </div>
+  );
+};
+
+export default Post;
