@@ -4,9 +4,10 @@ import CreatePostPage from "./components/CreatePost/CreatePostPage";
 import { CreatePost } from "../db/actions/CreatePost";
 
 export default function Home(props) {
-    const { posts } = props;
+    const { posts, comments } = props;
 
     const [postCollection, setPostCollection] = useState([]);
+    const [commentCollection, setCommentCollection] = useState({});
 
     // const [newPosts, setNewPosts] = useState([]);
 
@@ -22,6 +23,7 @@ export default function Home(props) {
             ...posts
         ]
         setPostCollection(temp);
+        setCommentCollection(comments);
     }, []);
 
     //useEffect for debugging console log
@@ -46,6 +48,10 @@ export default function Home(props) {
             <div key={post._id}>
               <Link href={`api/posts/${post._id}`}>
                 <h1>{post.title}</h1>
+                <h3>{post.body}</h3>
+                {commentCollection[post["_id"].toString()].map((comment) => (
+                    <p>{comment.body} {comment.date.substring(0, 10)} {comment.date.substring(11, 16)}</p>
+                ))}
               </Link>
             </div>
             ))}
@@ -66,9 +72,12 @@ export async function updateDatabase() {
 export async function getServerSideProps() {
     const res = await fetch("http://localhost:3000/api/posts");
     const data = await res.json();
+    const rescomments = await fetch("http://localhost:3000/api/comments");
+    const datacomments = await rescomments.json();
     return {
       props: {
         posts: data,
+        comments: datacomments,
       },
     };
   }
