@@ -35,6 +35,7 @@ export default function Home(props) {
         console.log(createPostFields);
     }, [createPostFields])
 
+    console.log(commentCollection)
 
 
     return (
@@ -45,15 +46,14 @@ export default function Home(props) {
         <div>
             <h1>POSTS:</h1>
             {postCollection.map((post) => (
-            <div key={post._id}>
-              <Link href={`api/posts/${post._id}`}>
-                <h1>{post.title}</h1>
-                <h3>{post.body}</h3>
-                {commentCollection[post["_id"].toString()].map((comment) => (
+                <div key={post._id}>
+                    <Link href={`./post/${post["_id"]}`}>
+                    <h1>{post.title}</h1>
+                    {/* {commentCollection[post["_id"].toString()].map((comment) => (
                     <p>{comment.body} {comment.date.substring(0, 10)} {comment.date.substring(11, 16)}</p>
-                ))}
-              </Link>
-            </div>
+                    ))} */}
+                    </Link>
+                </div>
             ))}
         </div> 
         </div>  
