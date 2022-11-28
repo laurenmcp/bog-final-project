@@ -1,20 +1,14 @@
-// import Post from "../models/Post";
-// import dbConnect from "../dbConnect";
+import Post from "../models/Post";
+import dbConnect from "../dbConnect";
 
-// /* 
-//   The following Post model action is given to you.
-//   You will have to await dbConnect() at the start of every action
-//    to access the database.
-// */
+/* 
+Create a new post
+*/
 
-// async function CreatePost(props) {
-//     const {title, body} = props;
-//     await dbConnect();
-//     await Post.create({
-//         title: title,
-//         body: body,
-//         comments: []
-//     });
-// }
+async function CreatePost(req, res) {
+    console.log(req.body);
+    await dbConnect();
+    return await Post.create(req.body);
+}
 
-// export { CreatePost };
+export { CreatePost }

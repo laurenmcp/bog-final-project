@@ -1,15 +1,15 @@
-// import { CreatePost } from "../../../db/actions/CreatePost";
-// import dbConnect from "../../../db/dbConnect";
+import { CreatePost } from "../../../db/actions/CreatePost";
 
-// function handler(req, res){
-//     create(req, res);
-//   }
+function handler(req, res){
+    createPost(req, res);
+    console.log("In api");
+  }
   
-//   async function createPost(req, res) {
-//     await dbConnect();
-//     const posts = await CreatePost();
-//     res.status(200).json(posts);
-//   }
+  async function createPost(req, res) {
+ 
+    const post = await CreatePost(req);
+    res.status(200).json(post);
+  }
   
-//   export default handler;
+  export default handler;
   

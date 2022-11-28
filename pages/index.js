@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import CreatePostPage from "./components/CreatePost/CreatePostPage";
-import { CreatePost } from "../db/actions/CreatePost";
 
 export default function Home(props) {
     const { posts, comments } = props;
 
     const [postCollection, setPostCollection] = useState([]);
     const [commentCollection, setCommentCollection] = useState({});
-
-    // const [newPosts, setNewPosts] = useState([]);
 
     const [createPostFields, setCreatePostFields] = useState({
         title: "",
@@ -18,7 +15,6 @@ export default function Home(props) {
 
     //On first render, grab all posts from the database and store in postCollection.
     useEffect(() => {
-        console.log("Initial render use effect")
         var temp = [
             ...posts
         ]
@@ -41,7 +37,7 @@ export default function Home(props) {
     return (
         <div>
         <div>
-            <CreatePostPage fields={createPostFields} setFields={setCreatePostFields} updateDatabase={updateDatabase}></CreatePostPage>
+            <CreatePostPage fields={createPostFields} setFields={setCreatePostFields}></CreatePostPage>
         </div>
         <div>
             <h1>POSTS:</h1>
@@ -59,14 +55,6 @@ export default function Home(props) {
         </div>  
     );
     
-}
-
-//The create post call should be moved to the api backend, just testing here
-export async function updateDatabase() {
-    /*CreatePost(createPostFields.title, createPostFields.body);*/
-    console.log("created");
-
-
 }
 
 export async function getServerSideProps() {
