@@ -23,7 +23,7 @@ function PostPage(props) {
         <div>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
-            <EditDelete></EditDelete>
+            <EditDelete post={post}></EditDelete>
             <div>
                 {commentsCopy.map((comment) => {
                     return <CommentComponent comment={comment}/>;

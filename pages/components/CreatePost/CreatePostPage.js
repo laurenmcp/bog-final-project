@@ -1,9 +1,12 @@
 import Form from "./Form";
+import { useState } from "react"
 
-function CreatePostPage(props) {
+function CreatePostPage() {
 
-    const { fields, setFields, updateDatabase} = props;
-
+    const [fields, setFields] = useState({
+        title: "",
+        body: "",
+    });
     
     const handleClick = () => {
         newPost(fields)

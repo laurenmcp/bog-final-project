@@ -16,7 +16,7 @@ What you need to implement:
   - Optionally, you could add a boolean `edited` key in the schema for Post if you want to display whether or not a post has been edited in the past
 
 - Delete
-
+                                                                                                                    
   - We don't want to store unnecessary data after deleting the post
   - Deletion should prompt the user for confirmation
 

@@ -8,11 +8,6 @@ export default function Home(props) {
     const [postCollection, setPostCollection] = useState([]);
     const [commentCollection, setCommentCollection] = useState({});
 
-    const [createPostFields, setCreatePostFields] = useState({
-        title: "",
-        body: "",
-    });
-
     //On first render, grab all posts from the database and store in postCollection.
     useEffect(() => {
         var temp = [
@@ -27,9 +22,6 @@ export default function Home(props) {
         console.log(postCollection);
     }, [postCollection])
 
-    useEffect(() => {
-        console.log(createPostFields);
-    }, [createPostFields])
 
     console.log(commentCollection)
 
@@ -37,12 +29,12 @@ export default function Home(props) {
     return (
         <div>
         <div>
-            <CreatePostPage fields={createPostFields} setFields={setCreatePostFields}></CreatePostPage>
+            <CreatePostPage></CreatePostPage>
         </div>
         <div>
             <h1>POSTS:</h1>
             {postCollection.map((post) => (
-                <div key={post._id}>
+                <div key={post["_id"]}>
                     <Link href={`./post/${post["_id"]}`}>
                     <h1>{post.title}</h1>
                     {/* {commentCollection[post["_id"].toString()].map((comment) => (
