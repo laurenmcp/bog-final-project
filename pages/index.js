@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import CreatePostPage from "./components/CreatePost/CreatePostPage";
 
+
 export default function Home(props) {
     const { posts, comments } = props;
-
     const [postCollection, setPostCollection] = useState([]);
     const [commentCollection, setCommentCollection] = useState({});
 
@@ -15,6 +15,7 @@ export default function Home(props) {
         ]
         setPostCollection(temp);
         setCommentCollection(comments);
+        
     }, []);
 
     //useEffect for debugging console log
@@ -24,7 +25,6 @@ export default function Home(props) {
 
 
     console.log(commentCollection)
-
 
     return (
         <div>

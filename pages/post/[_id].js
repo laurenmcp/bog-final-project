@@ -6,6 +6,7 @@ const Post = () => {
   const router = useRouter();
   const { _id } = router.query;
   const [ post, setPost ] = useState({});
+
  
   useEffect(() => {
     fetch("http://localhost:3000/api/posts/" + _id)
