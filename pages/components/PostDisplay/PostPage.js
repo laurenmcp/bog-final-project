@@ -7,7 +7,7 @@ import CommentForm from "../CommentForm";
 function PostPage(props) {
     const { post } = props;
     const [comments, setComments] = useState([]);
-    const [addComment, setAddComment] = useState({content: ""});
+    const [addComment, setAddComment] = useState({body: ""});
 
     useEffect(() => {
         fetch("http://localhost:3000/api/comments")
@@ -20,14 +20,17 @@ function PostPage(props) {
 
     return (
         <div>
+            <a href="/">
+                <button>Home</button>
+            </a>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
             <EditDelete post={post}></EditDelete>
             <div>
-                {/* {comments.map((comment) => {
+                {comments.map((comment) => {
                     return <CommentComponent comment={comment}/>;
-                })} */}
-                <CommentForm fields={addComment} setFields={setAddComment}/>
+                })} 
+                <CommentForm fields={addComment} setFields={setAddComment} postId={post["_id"].toString()}/>
             </div>
         </div>
     )

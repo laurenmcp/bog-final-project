@@ -1,19 +1,18 @@
 function CommentForm(props) {
-    const { fields, setFields } = props;
-    
+    const { fields, setFields, postId } = props;
+
     function addComment(event) {
-        event.preventDefault();
         console.log(fields);
-        newComment(fields);
-        setFields({content: ""});
+        newComment(fields, postId);
+        setFields({body: ""});
     }
 
     return(
         <div>
             <form onSubmit={addComment}>
-                <input value={fields.content} placeholder="Add comment" onChange={(event) => {
+                <input value={fields.body} placeholder="Add comment" onChange={(event) => {
                     let t = {...fields};
-                    t.content = event.target.value;
+                    t.body = event.target.value;
                     setFields(t);
                 }}></input>
                 <input type="submit" value="Submit" />
@@ -22,10 +21,12 @@ function CommentForm(props) {
     )
 }
 
-async function newComment(fields) {
-    if (!(fields.content == "" || fields.content == null)) {
+async function newComment(fields, postId) {
+    fields.postID = postId;
+    console.log(fields);
+    if (!(fields.body == "" || fields.body == null)) {
         await fetch('http://localhost:3000/api/comments/createcomment', {
-            method: "COMMENT",
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -35,16 +36,3 @@ async function newComment(fields) {
 }
 
 export default CommentForm;
-
-/*
-
-        <div>
-            <CommentForm fields={createCommentFields} setFields={setCreateCommentFields} />
-        </div>
-
-           const [createCommentFields, setCreateCommentFields] = useState({
-                content: ""
-            });
-
-
-*/
