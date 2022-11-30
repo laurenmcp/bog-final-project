@@ -6,7 +6,6 @@ function handler(req, res) {
   }
   
 async function deletePost(req, res) {
-    console.log(req.body)
     const post = await DeletePost(req);
     res.status(200).json(post);
     console.log(res.status)
