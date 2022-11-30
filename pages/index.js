@@ -7,6 +7,7 @@ export default function Home(props) {
     const { posts, comments } = props;
     const [postCollection, setPostCollection] = useState([]);
     const [commentCollection, setCommentCollection] = useState({});
+    var init = 0;
 
     //On first render, grab all posts from the database and store in postCollection.
     useEffect(() => {
@@ -33,19 +34,31 @@ export default function Home(props) {
         </div>
         <div>
             <h1>POSTS:</h1>
-            {postCollection.map((post) => (
+            {postCollection.slice(init, init + 10).map((post) => (
                 <div key={post["_id"]}>
                     <Link href={`./post/${post["_id"]}`}>
-                    <h1>{post.title}</h1> ({post.comments.length} comments)
-                    {/* {commentCollection[post["_id"].toString()].map((comment) => (
-                    <p>{comment.body} {comment.date.substring(0, 10)} {comment.date.substring(11, 16)}</p>
-                    ))} */}
+                    <h1>{post.title}</h1> 
+                    ({post.comments.length} comments)
                     </Link>
                 </div>
             ))}
+            <div>
+            <button onClick={() => location.reload()}>Back</button>  <button onClick={() => pageUp()}>Next</button>
+            </div>
         </div> 
         </div>  
     );
+    function pageDown() {
+        if(init != 0) {
+          init--;
+          console.log(init);
+        }
+      }
+    
+      function pageUp() {
+        init++;
+        console.log(init);
+      }
     
 }
 
