@@ -29,6 +29,7 @@ function CreatePostPage() {
         <div>
         <Form setFields={setFields} fields={fields}></Form>
         <button onClick={handleClick}><h1>Create post</h1></button>
+        <button><Link href="http://localhost:3000"><h1>Back to home</h1></Link></button>
         </div>
     )
 }

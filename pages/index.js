@@ -24,14 +24,11 @@ export default function Home(props) {
         console.log(postCollection);
     }, [postCollection])
 
-
     console.log(commentCollection)
 
     return (
         <div>
-        <div>
-            <CreatePostPage></CreatePostPage>
-        </div>
+            <Link href="./create"><button><h1>Add post</h1></button></Link>
         <div>
             <h1>POSTS:</h1>
             {postCollection.slice(init, init + 10).map((post) => (
@@ -48,17 +45,18 @@ export default function Home(props) {
         </div> 
         </div>  
     );
+
     function pageDown() {
         if(init != 0) {
           init--;
           console.log(init);
         }
-      }
+    }
     
       function pageUp() {
         init++;
         console.log(init);
-      }
+    }
     
 }
 
