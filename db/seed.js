@@ -21,7 +21,7 @@ async function seedDB() {
 
     await Comment.insertMany(commentData);
 
-    const postData = Array.from(Array(10)).map((e, i) => {
+    const postData = Array.from(Array(20)).map((e, i) => {
       const image_rand = Math.random() < 0.5;
       const val = {
         title: faker.lorem.lines(1),

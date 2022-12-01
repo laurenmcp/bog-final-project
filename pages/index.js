@@ -7,7 +7,8 @@ export default function Home(props) {
     const { posts, comments } = props;
     const [postCollection, setPostCollection] = useState([]);
     const [commentCollection, setCommentCollection] = useState({});
-    var init = 0;
+    const [init, setInit] = useState(1)
+    const [renderArr, setRenderArr] = useState([]);
 
     //On first render, grab all posts from the database and store in postCollection.
     useEffect(() => {
@@ -24,6 +25,19 @@ export default function Home(props) {
         console.log(postCollection);
     }, [postCollection])
 
+    var min;
+    var max;
+    useEffect(() => {
+        var temp = postCollection;
+        min = ((init - 1) * 10);
+        max = 10 + ((init - 1) * 10);
+        var show = temp.slice(min, max);
+        setRenderArr(show);
+        console.log(renderArr)
+    }, [init, postCollection])
+  
+    
+
     console.log(commentCollection)
 
     return (
@@ -31,7 +45,7 @@ export default function Home(props) {
           <Link href="./create"><button class="button"><h1>Add post</h1></button></Link>
           <div>
             <div id="postlist">
-              {postCollection.slice(init, init + 10).map((post) => (
+              {renderArr.map((post) => (
                   <div class="postinlist" key={post["_id"]}>
                       <Link href={`./post/${post["_id"]}`}>
                       <h1>{post.title}</h1> 
@@ -42,21 +56,22 @@ export default function Home(props) {
               ))}
             </div>
             <div id="backnext">
-            <button class="button" onClick={() => location.reload()}><h1>Back</h1></button>  <button class="button" onClick={() => pageUp()}><h1>Next</h1></button>
+            <button class="button" onClick={() => pageDown()}><h1>Back</h1></button>  <button class="button" onClick={() => pageUp()}><h1>Next</h1></button>
             </div>
           </div> 
         </div>  
     );
 
     function pageDown() {
-        if(init != 0) {
-          init--;
+        if(init != 1) {
+          setInit(init - 1);
           console.log(init);
         }
     }
     
       function pageUp() {
-        init++;
+        if(init * 10 < postCollection.length)
+        setInit(init + 1);
         console.log(init);
     }
     

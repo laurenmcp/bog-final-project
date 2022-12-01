@@ -7,8 +7,9 @@ Create a new post
 
 async function CreatePost(req, res) {
     await dbConnect();
-    res = await Post.create(req.body);
-    console.log(res)
+    var p = await Post.create(req.body)
+        // .then((res) => res["_id"]);
+    return await p;
 }
 
 export { CreatePost }
