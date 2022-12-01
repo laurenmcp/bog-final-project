@@ -43,6 +43,9 @@ export default function Home(props) {
     return (
         <div id="mainpage">
           <Link href="./create"><button class="button"><h1>Add post</h1></button></Link>
+          <div class="backnext">
+            <button class="button" onClick={() => pageDown()}><h2>Back</h2></button>  <button class="button" onClick={() => pageUp()}><h2>Next</h2></button>
+          </div>
           <div>
             <div id="postlist">
               {renderArr.map((post) => (
@@ -55,8 +58,8 @@ export default function Home(props) {
                   </div>
               ))}
             </div>
-            <div id="backnext">
-            <button class="button" onClick={() => pageDown()}><h1>Back</h1></button>  <button class="button" onClick={() => pageUp()}><h1>Next</h1></button>
+            <div class="backnext">
+            <button class="button" onClick={() => pageDown()}><h2>Back</h2></button>  <button class="button" onClick={() => pageUp()}><h2>Next</h2></button>
             </div>
           </div> 
         </div>  
