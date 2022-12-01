@@ -19,7 +19,7 @@ const Post = () => {
   }
 
   return (
-    <PostPage key={_id} post={post}></PostPage>
+    <PostPage key={_id} post={post} setPost={setPost}></PostPage>
  );
 };
 

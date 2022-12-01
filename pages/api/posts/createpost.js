@@ -9,6 +9,7 @@ function handler(req, res){
  
     const post = await CreatePost(req);
     res.status(200).json(post);
+    return res;
   }
   
   export default handler;

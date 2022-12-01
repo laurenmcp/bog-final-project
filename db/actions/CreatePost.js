@@ -5,9 +5,10 @@ import dbConnect from "../dbConnect";
 Create a new post
 */
 
-async function CreatePost(req) {
+async function CreatePost(req, res) {
     await dbConnect();
-    return await Post.create(req.body);
+    res = await Post.create(req.body);
+    console.log(res)
 }
 
 export { CreatePost }

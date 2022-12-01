@@ -5,7 +5,7 @@ import CommentForm from "../CommentForm";
 import EditForm from "./EditForm";
 
 function PostPage(props) {
-    const { post } = props;
+    const { post, setPost } = props;
     const [comments, setComments] = useState([]);
     const [addComment, setAddComment] = useState({content: ""});
     const [edit, setEdit] = useState(false);
@@ -38,15 +38,16 @@ function PostPage(props) {
         );
     }
     
-    const EditDisplay = () => {
+    const EditDisplay = (props) => {
+        const {setEdit} = props;
         return (
-            <EditForm post={post}></EditForm>
+            <EditForm post={post} setPost={setPost} setEdit={setEdit}></EditForm>
         )
     }
 
     return (
         <div>
-           {edit ? <EditDisplay /> : <PageDisplay />} 
+           {edit ? <EditDisplay  setEdit={setEdit}/> : <PageDisplay />} 
         </div>
     );
 }
