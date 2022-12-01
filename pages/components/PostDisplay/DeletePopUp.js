@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 
+//Conditionally renders delete and a delete confirmation. If delete confirmation is clicked
+//the post is deleted and the user is redirected to the home page
 export default function PopupDelete(props){
     
     const { post } = props;
@@ -10,11 +12,9 @@ export default function PopupDelete(props){
     return(
     <button>
         {deleteIt ? <ConfirmIt post={post} /> : <DeleteIt setDeleteIt={setDeleteIt}/>}
-      
     </button>
     )
-  };
-
+};
 
 async function del(post) {
     const data = {_id: post["_id"]};
