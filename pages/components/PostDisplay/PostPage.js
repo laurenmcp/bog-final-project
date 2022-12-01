@@ -27,6 +27,9 @@ function PostPage(props) {
     //if edit true render a form not the post, pass this to the component
 
     const PageDisplay = () => {
+
+        const commentsCopy = [...comments];
+        
         return (
             <div>
             <h1>{post.title}</h1>
@@ -34,6 +37,12 @@ function PostPage(props) {
             <PostDate post={post}></PostDate>
             <EditDelete post={post} setEdit={setEdit}></EditDelete>
             <div>
+                {commentsCopy.map((comment) => {
+                    return <p>{comment.body} {comment.date.substring(0, 10)} {comment.date.substring(11, 16)}</p>
+                })}
+                    {commentsCopy.map((comment) => {
+                        return <CommentComponent comment={comment}/>;
+                    })}
             <CommentForm fields={addComment} setFields={setAddComment}/>
             </div>
         </div>
