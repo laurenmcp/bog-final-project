@@ -28,7 +28,7 @@ function PostDate(props) {
     }
 
     return(
-            <p class="commentdate">{months[parseInt(post.date.substring(5, 7)) - 1]} {post.date.substring(8, 10)}, {post.date.substring(0, 4)}, {timeValue}</p>
+            <p class="postdate">{months[parseInt(post.date.substring(5, 7)) - 1]} {post.date.substring(8, 10)}, {post.date.substring(0, 4)}, {timeValue}</p>
     )
 }
 

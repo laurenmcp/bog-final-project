@@ -161,6 +161,10 @@ a {
   font-style: italic;
 }
 
+.postdate {
+  font-size: 12px;
+  font-style: italic;
+}
 .editpostpage {
   display: flex;
   flex-direction: column;

@@ -35,6 +35,7 @@ function PostPage(props) {
             <div class="posttitleandcontent">
                 <h1>{post.title}</h1>
                 <p class="postcontent">{post.body}</p>
+                <PostDate post={post}></PostDate>
             </div>
             <EditDelete post={post} setEdit={setEdit}></EditDelete>
             <div class="commentsection">
