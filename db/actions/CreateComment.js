@@ -16,7 +16,7 @@ async function CreateComment(req, res) {
         .then((data) => {
             return data;
         });
-    const newComments = p.comments.concat(cid.toString());
+    const newComments = [cid.toString()].concat(p.comments);
     const updateDoc = {
         $set: {
           comments: newComments

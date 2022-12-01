@@ -31,10 +31,14 @@ function EditForm(props) {
 
     const back = "http://localhost:3000/post/" + post["_id"];
     return (
-        <div>
-        <Form setFields={setFields} fields={fields}></Form>
-        <button onClick={handleClick}><h1>Update post</h1></button>
-        <button><Link href={back}><h1>Back to post</h1></Link></button>
+        <div class="editpostpage">
+            <div class="editpagefields">
+                <Form setFields={setFields} fields={fields}></Form>
+            </div>
+            <div class="editpagebuttons">
+                <button class="button" onClick={handleClick}><h2>Update post</h2></button>
+                <button class="button"><Link href={back}><h2>Back to post</h2></Link></button>
+            </div>
         </div>
     )
 }
@@ -49,7 +53,7 @@ const Form = (props) => {
             <form onSubmit={(e) => {
                 e.preventDefault();
             }}>
-            <input 
+            <input class="formfield"
                 placeholder="Edit post title"
                 value={title}
                 onChange={(e) => {
@@ -62,7 +66,7 @@ const Form = (props) => {
                     setFields(copiedFields);
                 }}>
             </input>
-            <input 
+            <input class="formfield editcontentfield"
                 placeholder="Edit post content"
                 value={body}
                 onChange={(e) => {

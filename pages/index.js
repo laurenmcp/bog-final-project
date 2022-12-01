@@ -27,22 +27,24 @@ export default function Home(props) {
     console.log(commentCollection)
 
     return (
-        <div>
-            <Link href="./create"><button><h1>Add post</h1></button></Link>
-        <div>
-            <h1>POSTS:</h1>
-            {postCollection.slice(init, init + 10).map((post) => (
-                <div key={post["_id"]}>
-                    <Link href={`./post/${post["_id"]}`}>
-                    <h1>{post.title}</h1> 
-                    ({post.comments.length} comments)
-                    </Link>
-                </div>
-            ))}
-            <div>
-            <button onClick={() => location.reload()}>Back</button>  <button onClick={() => pageUp()}>Next</button>
+        <div id="mainpage">
+          <Link href="./create"><button class="button"><h1>Add post</h1></button></Link>
+          <div>
+            <div id="postlist">
+              {postCollection.slice(init, init + 10).map((post) => (
+                  <div class="postinlist" key={post["_id"]}>
+                      <Link href={`./post/${post["_id"]}`}>
+                      <h1>{post.title}</h1> 
+                      <p>{post.body}</p>
+                      <p class="numcomments">({post.comments.length} comments)</p>
+                      </Link>
+                  </div>
+              ))}
             </div>
-        </div> 
+            <div id="backnext">
+            <button class="button" onClick={() => location.reload()}><h1>Back</h1></button>  <button class="button" onClick={() => pageUp()}><h1>Next</h1></button>
+            </div>
+          </div> 
         </div>  
     );
 

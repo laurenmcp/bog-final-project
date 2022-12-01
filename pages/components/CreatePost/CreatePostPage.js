@@ -26,10 +26,10 @@ function CreatePostPage() {
     }
 
     return (
-        <div>
-        <Form setFields={setFields} fields={fields}></Form>
-        <button onClick={handleClick}><h1>Create post</h1></button>
-        <button><Link href="http://localhost:3000"><h1>Back to home</h1></Link></button>
+        <div id="createpostpage">
+            <Form setFields={setFields} fields={fields}></Form>
+            <button class="button" id="createpostbutton" onClick={handleClick}><h1>Create post</h1></button>
+            <button class="button"><Link href="http://localhost:3000"><h1>Back to home</h1></Link></button>
         </div>
     )
 }

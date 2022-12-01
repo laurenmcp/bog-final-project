@@ -5,18 +5,19 @@ function CommentForm(props) {
         console.log(fields);
         newComment(fields, postId);
         setFields({body: ""});
+        window.location.reload();
     }
 
     return(
-        <div>
-            <form onSubmit={addComment}>
-                <input value={fields.body} placeholder="Add comment" onChange={(event) => {
+        <div class="addcomment">
+            <form onSubmit={(e) => {}}>
+                <input class="formfield" id="addcommentfield" value={fields.body} placeholder="Add comment" onChange={(event) => {
                     let t = {...fields};
                     t.body = event.target.value;
                     setFields(t);
                 }}></input>
-                <input type="submit" value="Submit" />
             </form>
+            <button class="button" onClick={addComment}><h3>Submit</h3></button>
         </div>
     )
 }

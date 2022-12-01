@@ -10,7 +10,7 @@ export default function PopupDelete(props){
     const [ deleteIt, setDeleteIt ] = useState(false);
 
     return(
-    <button>
+    <button class="button">
         {deleteIt ? <ConfirmIt post={post} /> : <DeleteIt setDeleteIt={setDeleteIt}/>}
     </button>
     )
@@ -35,7 +35,7 @@ const ConfirmIt = (props) => {
     const { post } = props;
     console.log("CONFIRM")
     return (
-        <p><Link href="http://localhost:3000/" onClick={() => del(post)}>Click to confirm</Link></p>
+        <h2><Link href="http://localhost:3000/" onClick={() => del(post)}>Click to confirm</Link></h2>
     )
 }
 
@@ -43,6 +43,6 @@ const DeleteIt = (props) => {
     const { setDeleteIt } = props;
     console.log("DELETE")
     return (
-        <p onClick={() => setDeleteIt(true)}>Delete</p>
+        <h2 onClick={() => setDeleteIt(true)}>Delete</h2>
     )
 }

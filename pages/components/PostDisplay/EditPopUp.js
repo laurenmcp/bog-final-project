@@ -4,7 +4,7 @@ export default function PopupEdit(props){
     const { setEdit } = props;
 
     return(
-    <button>
+    <button class="button">
         <ConfirmIt setEdit={setEdit}></ConfirmIt>
     </button>
     )
@@ -14,6 +14,6 @@ export default function PopupEdit(props){
 const ConfirmIt = (props) => {
     const { setEdit } = props;
     return (
-        <p onClick={() => setEdit(true)}>Edit</p>
+        <h2 onClick={() => setEdit(true)}>Edit</h2>
     )
 }

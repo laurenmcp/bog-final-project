@@ -29,7 +29,7 @@ function CommentComponent(props) {
 
     return(
         <div>
-            <p>{comment.body}</p>
+            <p class="commentbody">{comment.body}</p>
             <p class="commentdate">{months[parseInt(comment.date.substring(5, 7)) - 1]} {comment.date.substring(8, 10)}, {comment.date.substring(0, 4)}, {timeValue}</p>
         </div>
     )

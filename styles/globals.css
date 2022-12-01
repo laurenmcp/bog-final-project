@@ -25,6 +25,149 @@ a {
   }
 }
 
+#mainpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3em 0em;
+}
+
+.formfield {
+  padding: 1em;
+  font-size: 1em;
+  margin: 1em;
+  border-style: none;
+  background-color: #eeeeee;
+  border-radius: 0.3em;
+}
+
+.formfield:focus {
+  background-color: #dddddd;
+  transition: 0.3s;
+  outline: none;
+}
+
+#createpostpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
+}
+
+#createpostbutton {
+  margin: 1em 32em;
+}
+
+#addpostcontent {
+  width: 50em;
+}
+
+.button {
+  border-style: none;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  margin: 1em 5em;
+  padding: 0em 2em;
+}
+
+.button:hover {
+  background-color: #cccccc;
+}
+
+#postlist {
+  margin: 0em 10em;
+}
+
+.postinlist {
+  margin: 3em 0em;
+  background-color: rgb(245, 245, 245);
+  padding: 2em 3em;
+  border-radius: 2em;
+  transition: 0.3s;
+}
+
+.postinlist:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.numcomments {
+  font-style: italic;
+}
+
+#backnext {
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+.postpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 10em 3em 10em;
+}
+
+#homebutton {
+  padding: 0em 2em;
+}
+
+.postcontent {
+  font-size: 1.5em;
+}
+
+.posttitleandcontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 8em;
+  border-style: solid;
+  border-color:rgb(230, 230, 230);
+  border-radius: 1em;
+  border-width: 0.2em;
+  padding: 3em;
+  width: 60em;
+  transition: 0.3s;
+}
+
+.posttitleandcontent:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+#editdeletebuttons {
+  display: flex;
+}
+
+.commentsection {
+  width: 60em;
+}
+
+.addcomment {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+#addcommentfield {
+  width: 25em;
+}
+
+.commentbody {
+  margin: 0em;
+  margin-top: 1.5em;
+}
+
 .commentdate {
   font-size: 12px;
+  font-style: italic;
+}
+
+.editpostpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
+}
+
+.editcontentfield {
+  width: 40em;
 }

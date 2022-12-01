@@ -9,7 +9,7 @@ const Form = (props) => {
         <form onSubmit={(e) => {
             e.preventDefault();
         }}>
-        <input 
+        <input class="formfield"
             placeholder="Add post title"
             value={title}
             onChange={(e) => {
@@ -22,7 +22,7 @@ const Form = (props) => {
                 setFields(copiedFields);
             }}>
         </input>
-        <input 
+        <input class="formfield" id="addpostcontent"
             placeholder="Add post content"
             value={body}
             onChange={(e) => {
