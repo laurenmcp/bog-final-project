@@ -17,7 +17,10 @@ export default function PopupDelete(props){
 };
 
 async function del(post) {
-    const data = {_id: post["_id"]};
+    const data = {
+        _id: post["_id"],
+        comments: post.comments
+    };
     console.log(data);
     await fetch('http://localhost:3000/api/posts/delete', {
             method: "POST",
