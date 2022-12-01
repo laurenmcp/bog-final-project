@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import EditDelete from "./EditDelete";
 import CommentComponent from "../CommentComponent";
+import PostDate from "./PostDate";
 import CommentForm from "../CommentForm";
 import EditForm from "./EditForm";
 
@@ -30,6 +31,7 @@ function PostPage(props) {
             <div>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
+            <PostDate post={post}></PostDate>
             <EditDelete post={post} setEdit={setEdit}></EditDelete>
             <div>
             <CommentForm fields={addComment} setFields={setAddComment}/>
